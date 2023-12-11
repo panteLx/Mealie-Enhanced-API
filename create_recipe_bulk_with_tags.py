@@ -50,6 +50,20 @@ def send_post_request(url, include_tags, token, api_url):
     # Print the response
     print(f"URL: {url}, Include Tags: {include_tags}, Status Code: {response.status_code}, Response: {response.text}")
 
+    # Check if response.text ends with a number
+    text = response.text.replace('"', '')
+    if text and text[-1].isdigit():
+        # user input delete request
+        user_input_delete = input(
+            "Duplicate found! Do you want to delete it? (yes, no): ")
+        if user_input_delete.strip() != "" and user_input_delete.strip() in ['yes']:
+            response = requests.delete(
+                api_url+'/api/recipes/'+text, headers=headers)
+
+            # Print the response
+            print(
+                f"Status Code: {response.status_code}")
+
 
 # prompt for include tags input
 user_input_include_tags = input(

@@ -4,10 +4,11 @@ Custom Python Scripts using the Mealie API
 
 ## Features
 
-create_recipe_bulk_with_tags:
+> create_recipe_bulk_with_tags:
 
 - Bulk creation of new recipes
 - Specify if you want to import original keywords as tags
+- Duplicate check and input if user wants to delete them
 - Saved auth variables (otherwise you have to input `MEALIE_API_TOKEN` and `http://MEALIE_API_URL:PORT` every time)
 
 ## Installation
@@ -53,10 +54,19 @@ Enter your API-Token: MEALIE_API_TOKEN
 
 Enter your API-URL (without path - e.g. http://mealie.dev:9925): http://MEALIE_API_URL:PORT
 
-Enter URLs separated by commas: http://BEST_CAKES_DOMAIN_1, http://BEST_CAKES_DOMAIN_2
+Enter URLs separated by commas: http://BEST_CAKES_DOMAIN_1, http://BEST_CAKES_DOMAIN_2, http://BEST_CAKES_DOMAIN_2
+
 
 URL: https://BEST_CAKES_DOMAIN_1, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_1"
+
 URL: https://BEST_CAKES_DOMAIN_2, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_2"
+
+URL: https://BEST_CAKES_DOMAIN_2, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_2"
+
+Duplicate found! Do you want to delete it? (yes, no): yes
+
+Status Code: 200
+
 ```
 
 The Script will save your `MEALIE_API_TOKEN` and `http://MEALIE_API_URL:PORT` in the `config/auth.json` file.
