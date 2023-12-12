@@ -54,7 +54,7 @@ elif selected_script == "2":
     include_tags = validate.user_input(
         '\nDo you want to import original keywords as tags? (true, false): ', valid_options=['true', 'false'])
 
-    base_url = "https://www.kitchenstories.com/de/kategorien/"
+    base_url = "https://www.kitchenstories.com/de/kategorien/"  # fix
 
     # Extract recipe links
     links = crawler(base_url, category, '/rezepte/')
