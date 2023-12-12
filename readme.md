@@ -58,14 +58,15 @@ Happy cooking with Mealie! 🍲
    - If a duplicate is found, you will be prompted to delete it.
    - You will be prompted to specify whether to import original keywords as tags for the recipes.
 
-2. **Crawl custom website and create new recipes based on crawl results (with/without Tags)**
+2. **ALPHA - Crawl custom website and create new recipes based on crawl results (with/without Tags)**
 
-   - You can choose the category to crawl.
+   - You can choose the external recipe URL to crawl.
+   - Crawler will search for all results within your external recipe URL containing a keyword you choose (e.g. "recipes").
    - For each crawled URL, a POST request is sent to the API to create a corresponding recipe URL.
    - If a duplicate is found, you will be prompted to delete it.
    - You will be prompted to specify whether to import original keywords as tags for the recipes.
 
-> Script two is currently hardcoded to kitchenstories.com! New release to fix this will follow soon.
+> Script two has a moderate chance to find bad URLs that can't be parsed! Mealie API will throw an error (400). However this won't break anything.
 
 ## How to Run
 
