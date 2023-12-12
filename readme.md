@@ -1,92 +1,81 @@
 # Mealie API Custom Scripts
 
-Custom Python Scripts using the Mealie API
+## Overview
 
-## Features
+This set of custom Python scripts is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. These scripts are licensed under the GNU General Public License v3.0.
 
-> create_recipe_bulk_with_tags:
+## Prerequisites for all scripts
 
-- Bulk creation of new recipes
-- Specify if you want to import original keywords as tags
-- Duplicate check and input if user wants to delete them
-- Saved auth variables (otherwise you have to input `MEALIE_API_TOKEN` and `http://MEALIE_API_URL:PORT` every time)
+- Python 3.x
+- [Requests](https://docs.python-requests.org/en/latest/) library (`pip install requests`)
 
 ## Installation
 
-> Python is required in order to use the scripts.
+1. Clone the repository:
 
-Clone the project
+   ```bash
+   git clone https://github.com/panteLx/mealie_api_custom_scripts.git
+   ```
 
-```bash
-  git clone https://github.com/panteLx/mealie_api_custom_scripts
-```
+2. Navigate to the project directory:
 
-Go to the project directory
+   ```bash
+   cd mealie_api_custom_scripts
+   ```
 
-```bash
-  cd mealie_api_custom_scripts
-```
+3. Make the script executable:
 
-Install required dependencies
+   ```bash
+   chmod +x script_name.py
+   ```
 
-```bash
-  pip install requests
-```
+4. Install dependencies (if not already installed):
 
-## Usage
+   ```bash
+   pip install -r requirements/script_name.txt
+   ```
 
-Run the Script with the following command
+## Script: create_recipe_bulk_with_tags.py
 
-```
-python SCRIPT_NAME.py
-```
+### Usage
 
-### Example for create_recipe_bulk_with_tags
+1. **Authentication Setup**
 
-Run `python create_recipe_bulk_with_tags.py`
+   - The script uses an authentication token and API URL. If not already set, the script prompts the user to enter these details.
+   - The authentication details are saved in a configuration file (`config/auth.json`) for future use.
 
-Output:
+2. **Create URLs**
 
-```
-Do you want to import original keywords as tags? (true, false): true
+   - The user is prompted to input a list of URLs separated by commas.
+   - For each URL, a POST request is sent to the API to create a corresponding recipe URL.
+   - If a duplicate is found, the user is prompted to delete it.
 
-Enter your API-Token: MEALIE_API_TOKEN
+3. **Include Tags**
 
-Enter your API-URL (without path - e.g. http://mealie.dev:9925): http://MEALIE_API_URL:PORT
+   - The user is prompted to specify whether to import original keywords as tags for the recipes.
 
-Enter URLs separated by commas: http://BEST_CAKES_DOMAIN_1, http://BEST_CAKES_DOMAIN_2, http://BEST_CAKES_DOMAIN_2
+### How to Run
 
+1. Make the script executable:
 
-URL: https://BEST_CAKES_DOMAIN_1, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_1"
+   ```bash
+   chmod +x create_recipe_bulk_with_tags.py
+   ```
 
-URL: https://BEST_CAKES_DOMAIN_2, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_2"
+2. Run the script:
 
-URL: https://BEST_CAKES_DOMAIN_2, Include Tags: true, Status Code: 201, Response: "best_cake_on_the_planet_2"
+   ```bash
+   ./create_recipe_bulk_with_tags.py
+   ```
 
-Duplicate found! Do you want to delete it? (yes, no): yes
+### Configuration
 
-Status Code: 200
+- Authentication details are stored in the `config/auth.json` file.
 
-```
+### Acknowledgments
 
-The Script will save your `MEALIE_API_TOKEN` and `http://MEALIE_API_URL:PORT` in the `config/auth.json` file.
-
-## Roadmap
-
-- Add more scripts that uses the Mealie API
-
-- Enhance exisiting scripts
-
-## Feedback & Support
-
-Feel free to open up an Issue if you have questions or experienced any bugs/errors.
-
-## Contributing
-
-Contributions are always welcome!
-
-Just open up a new pull request.
+- The script uses the [Requests](https://docs.python-requests.org/en/latest/) library for handling HTTP requests.
 
 ## License
 
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+This repository is licensed under the [GNU General Public License v3.0](LICENSE). Feel free to use, modify, and distribute it. If you encounter any issues or have suggestions, please create an issue in the [GitHub repository](https://github.com/panteLx/mealie_api_custom_scripts).
