@@ -2,7 +2,7 @@
 
 ## Overview
 
-This set of custom Python scripts is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. These scripts are licensed under the GNU General Public License v3.0.
+This set of custom Python scripts is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. Check it out!
 
 ## Prerequisites for all scripts
 
