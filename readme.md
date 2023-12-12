@@ -2,7 +2,11 @@
 
 ## Overview
 
-This Python script is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. Check it out! Happy cooking with Mealie! 🍲
+This Python script is designed to interact with the Mealie API, providing additional functionality for managing recipes and more.
+
+It does not include any functions that you can achieve with the standard Mealie API.
+
+Happy cooking with Mealie! 🍲
 
 ## Prerequisites
 
@@ -69,6 +73,11 @@ This Python script is designed to interact with the Mealie API, providing additi
 ### Configuration
 
 - Authentication details are stored in the `config/auth.json` file.
+
+### Documentation
+
+- [Mealie API Docs](https://nightly.mealie.io/api/redoc/) check out the API Docs to learn more about the Mealie API
+- [Mealie Getting Started](https://nightly.mealie.io/documentation/getting-started/introduction/) learn more about Mealie
 
 ### Acknowledgments
 
