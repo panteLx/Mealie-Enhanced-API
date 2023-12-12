@@ -2,3 +2,4 @@ config*
 functions/__pycache__*
 tests*
 venv*
+virtualenv.txt
