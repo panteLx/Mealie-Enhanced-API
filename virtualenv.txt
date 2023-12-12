@@ -1,0 +1,9 @@
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python run.py
+
+pip freeze > requirements.txt
+
+deactivate 
