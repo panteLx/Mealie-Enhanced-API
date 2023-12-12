@@ -7,6 +7,7 @@ import sys
 
 CONFIG_DIR = 'config'
 
+
 # Function to save authentication input to a file
 
 
