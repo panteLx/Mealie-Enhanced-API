@@ -47,20 +47,25 @@ Happy cooking with Mealie! 🍲
 
 2. **Choose Script**
 
-   - The user is prompted to choose which script he want's to run.
+   - You will be prompted to choose which script you want to run.
 
 ## Available Scripts
 
-1. **Create a new recipe from URL (bulk or single) with/without Tags**
+1. **Bulk Create new recipes from URLs (with/without Tags)**
 
-   - The user is prompted to input a list of URLs separated by commas.
+   - You will be prompted to input a list of URLs separated by commas.
    - For each URL, a POST request is sent to the API to create a corresponding recipe URL.
-   - If a duplicate is found, the user is prompted to delete it.
-   - The user is prompted to specify whether to import original keywords as tags for the recipes.
+   - If a duplicate is found, you will be prompted to delete it.
+   - You will be prompted to specify whether to import original keywords as tags for the recipes.
 
-2. **Coming soon**
+2. **Crawl custom website and create new recipes based on crawl results (with/without Tags)**
 
-   - Coming soon...
+   - You can choose the category to crawl.
+   - For each crawled URL, a POST request is sent to the API to create a corresponding recipe URL.
+   - If a duplicate is found, you will be prompted to delete it.
+   - You will be prompted to specify whether to import original keywords as tags for the recipes.
+
+> Script two is currently hardcoded to kitchenstories.com! New release to fix this will follow soon.
 
 ## How to Run
 
