@@ -19,8 +19,12 @@ def post_recipes_create_url(url, include_tags, token, api_url):
         f"{api_url}/api/recipes/create-url", data=json.dumps(data), headers=headers)
 
     # Print information about the response
-    print(
-        f"\n{Fore.GREEN}Created recipe - URL: {url}, Include Tags: {include_tags}, Status Code: {response.status_code}, Response: {response.text}{Style.RESET_ALL}")
+    if response.status_code == 201:
+        print(
+            f"\n{Fore.GREEN}Created recipe - URL: {url}, Include Tags: {include_tags}, Status Code: {response.status_code}, Response: {response.text}{Style.RESET_ALL}")
+    else:
+        print(
+            f"\n{Fore.RED}Parse Error - URL: {url}, Include Tags: {include_tags}, Status Code: {response.status_code}, Response: {response.text}{Style.RESET_ALL}")
 
     # Extract the recipe slug from the response
     slug = response.text.strip('"')
@@ -49,8 +53,7 @@ def delete_recipes(api_url, headers, slug):
 
 # Function to crawl external websites for recipes
 
-def crawler(base_url, category, keyword):
-    url = urljoin(base_url, category)
+def crawler(url, keyword):
     response = requests.get(url)
 
     if response.status_code == 200:
