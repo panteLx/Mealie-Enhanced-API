@@ -70,16 +70,16 @@ Happy cooking with Mealie! 🍲
    ./run.py
    ```
 
-### Configuration
+## Configuration
 
 - Authentication details are stored in the `config/auth.json` file.
 
-### Documentation
+## Documentation
 
 - [Mealie API Docs](https://nightly.mealie.io/api/redoc/) check out the API Docs to learn more about the Mealie API
 - [Mealie Getting Started](https://nightly.mealie.io/documentation/getting-started/introduction/) learn more about Mealie
 
-### Acknowledgments
+## Acknowledgments
 
 - The script uses the [Requests](https://docs.python-requests.org/en/latest/) library (version 2.31.0) for handling HTTP requests.
 - [Certifi](https://pypi.org/project/certifi/) (version 2023.11.17) for providing a curated collection of Root Certificates for validating SSL certificates.
