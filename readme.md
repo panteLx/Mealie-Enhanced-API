@@ -51,21 +51,16 @@ Happy cooking with Mealie! 🍲
 
 ## Available Scripts
 
-1. **Bulk Create new recipes from URLs (with/without Tags)**
+1. **Create a new recipe from URL (bulk or single) with/without Tags**
 
    - You will be prompted to input a list of URLs separated by commas.
    - For each URL, a POST request is sent to the API to create a corresponding recipe URL.
    - If a duplicate is found, you will be prompted to delete it.
    - You will be prompted to specify whether to import original keywords as tags for the recipes.
 
-2. **Crawl custom website and create new recipes based on crawl results (with/without Tags)**
+2. **Coming soon**
 
-   - You can choose the category to crawl.
-   - For each crawled URL, a POST request is sent to the API to create a corresponding recipe URL.
-   - If a duplicate is found, you will be prompted to delete it.
-   - You will be prompted to specify whether to import original keywords as tags for the recipes.
-
-> Script two is currently hardcoded to kitchenstories.com! New release to fix this will follow soon.
+   - Coming soon...
 
 ## How to Run
 

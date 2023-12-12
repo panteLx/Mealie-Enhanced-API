@@ -1,9 +1,6 @@
 import requests
 import json
-import sys
 from colorama import Fore, Style
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
 
 # Function to send a POST request to create a URL
 
@@ -45,23 +42,3 @@ def delete_recipes(api_url, headers, slug):
     # Print information about the deletion response
     print(
         f"\n{Fore.GREEN}Deleted {slug} - Status Code: {response.status_code}{Style.RESET_ALL}")
-
-
-# Function to crawl external websites for recipes
-
-def crawler(base_url, category, keyword):
-    url = urljoin(base_url, category)
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        # Find all links
-        links = {urljoin(url, a['href']) for a in soup.find_all(
-            'a', href=True) if keyword in a['href']}
-
-        return list(links)
-    else:
-        print(
-            f"\n{Fore.RED}Error while crawling site! - Status Code: {response.status_code}{Style.RESET_ALL}")
-        sys.exit()
