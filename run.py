@@ -8,7 +8,7 @@ token, api_url = auth.load_auth_input_from_file()
 if not token:
     # Prompt the user to enter API-Token
     token = validate.user_input(
-        'Enter your API-Token: ', is_token=True).strip()
+        'Enter your API-Token: ', is_text=True).strip()
     auth.save_auth_input_to_file(token, api_url)
 
 if not api_url:
@@ -19,9 +19,9 @@ if not api_url:
 
 # Prompt for script selection input
 selected_script = validate.user_input(
-    """\nWhich script do you want to run? 
+    f"""\nWhich script do you want to run? 
     1 - Bulk Create new recipes from URLs (with/without Tags)
-    2 - Crawl custom website and create new recipes based on crawl results (with/without Tags)
+    2 - {Fore.RED}ALPHA{Style.RESET_ALL} - Crawl custom website and create new recipes based on crawl results (with/without Tags)
     Select your option (1-2): """, valid_options=["1", "2"])
 
 if selected_script == "1":
@@ -46,18 +46,22 @@ if selected_script == "1":
                 f"\n{Fore.RED}Invalid URL: {url} (URL should start with 'http://' or 'https://'){Style.RESET_ALL}")
 
 elif selected_script == "2":
-   # Prompt for category input
-    category = validate.user_input(
-        '\nWhich category should I crawl (fruhstuck, abendessen, mittagessen, dessert): ', valid_options=['fruhstuck', 'abendessen', 'mittagessen', 'dessert'])
+    print(f"\n{Fore.RED}ALPHA - Crawler has a moderate chance to find bad URLs that can't be parsed! Mealie API will throw an error (400). However this won't break anything. {Style.RESET_ALL}")
+
+   # Prompt for url input
+    url = validate.user_input(
+        "\nInput your external recipe URL to crawl (e.g. https://www.kitchenstories.com/en/categories/breakfast): ", is_url=True).strip()
+
+    # Prompt for keyword input
+    keyword = validate.user_input(
+        '\nEnter crawler keyword - Crawler will search for all results within your external recipe URL containing this keyword (e.g. "recipes"): ', is_text=True)
 
     # Prompt for include tags input
     include_tags = validate.user_input(
         '\nDo you want to import original keywords as tags? (true, false): ', valid_options=['true', 'false'])
 
-    base_url = "https://www.kitchenstories.com/de/kategorien/"
-
     # Extract recipe links
-    links = crawler(base_url, category, '/rezepte/')
+    links = crawler(url, f'/{keyword}/')
 
     # Loop through each URL and create POST
     for link in links:
