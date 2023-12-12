@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Python script is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. Check it out!
+This Python script is designed to interact with the Mealie API, providing additional functionality for managing recipes and more. Check it out! Happy cooking with Mealie! 🍲
 
 ## Prerequisites
 
@@ -26,6 +26,12 @@ This Python script is designed to interact with the Mealie API, providing additi
 
    ```bash
    chmod +x run.py
+   ```
+
+4. Install dependencies (if not already installed):
+
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -54,13 +60,7 @@ This Python script is designed to interact with the Mealie API, providing additi
 
 ## How to Run
 
-1. Make the script executable:
-
-   ```bash
-   chmod +x run.py
-   ```
-
-2. Run the script:
+1. Run the script:
 
    ```bash
    ./run.py
@@ -72,7 +72,12 @@ This Python script is designed to interact with the Mealie API, providing additi
 
 ### Acknowledgments
 
-- The script uses the [Requests](https://docs.python-requests.org/en/latest/) library for handling HTTP requests.
+- The script uses the [Requests](https://docs.python-requests.org/en/latest/) library (version 2.31.0) for handling HTTP requests.
+- [Certifi](https://pypi.org/project/certifi/) (version 2023.11.17) for providing a curated collection of Root Certificates for validating SSL certificates.
+- [Charset-normalizer](https://pypi.org/project/charset-normalizer/) (version 3.3.2) for normalizing Unicode strings and character sets.
+- [Colorama](https://pypi.org/project/colorama/) (version 0.4.6) for adding colored output to the terminal.
+- [Idna](https://pypi.org/project/idna/) (version 3.6) for handling Internationalized Domain Names in Applications.
+- [Urllib3](https://pypi.org/project/urllib3/) (version 2.1.0) for handling HTTP requests.
 
 ## License
 
