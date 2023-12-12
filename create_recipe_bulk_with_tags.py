@@ -5,10 +5,14 @@ import sys
 
 CONFIG_DIR = 'config'
 
+# Function to save authentication input to a file
+
 
 def save_auth_input_to_file(token, api_url, file_path=os.path.join(CONFIG_DIR, 'auth.json')):
     with open(file_path, 'w') as file:
         json.dump({'token': token, 'api_url': api_url}, file)
+
+# Function to load authentication input from a file
 
 
 def load_auth_input_from_file(file_path=os.path.join(CONFIG_DIR, 'auth.json')):
@@ -17,6 +21,8 @@ def load_auth_input_from_file(file_path=os.path.join(CONFIG_DIR, 'auth.json')):
             data = json.load(file)
         return data.get('token'), data.get('api_url')
     return None, None
+
+# Function to send a POST request to create a URL
 
 
 def send_post_request(url, include_tags, token, api_url):
@@ -38,6 +44,8 @@ def send_post_request(url, include_tags, token, api_url):
                 api_url+'/api/recipes/'+text, headers=headers)
             print(
                 f"Duplicate Deleted - Status Code: {delete_response.status_code}")
+
+# Function to validate user input
 
 
 def validate_input(prompt, valid_options=None, is_url=False, is_token=False):
@@ -65,10 +73,12 @@ os.makedirs(CONFIG_DIR, exist_ok=True)
 # Load Auth-Token and API-URL or prompt for user auth input if not available
 token, api_url = load_auth_input_from_file()
 if not token:
+    # Prompt the user to enter API-Token
     token = validate_input('Enter your API-Token: ', is_token=True).strip()
     save_auth_input_to_file(token, api_url)
 
 if not api_url:
+    # Prompt the user to enter API-URL
     api_url = validate_input(
         'Enter your API-URL (without path - e.g. http://mealie.dev:9925): ', is_url=True).strip()
     save_auth_input_to_file(token, api_url)
@@ -87,6 +97,7 @@ url_array = user_input_urls.split(',')
 for url in url_array:
     # Check if the URL starts with "http://" or "https://"
     if url.strip().startswith(("http://", "https://")):
+        # Send a POST request for each URL
         send_post_request(url.strip(), include_tags, token, api_url)
     else:
         print(
