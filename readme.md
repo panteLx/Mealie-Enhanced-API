@@ -47,6 +47,7 @@ Happy cooking with Mealie! 🍲
 
 2. **Choose Script**
 
+   - The script will check for an established API connection. It will also validate the provided auth token.
    - You will be prompted to choose which script you want to run.
 
 ## Available Scripts
