@@ -9,7 +9,9 @@ from urllib.parse import urljoin
 # Function to send a GET request
 def get_user_self(api_url, token):
     # Check connection and authentication data
-    print(f"\n{Fore.BLUE}Checking connection and auth data...{Style.RESET_ALL}")
+    print(
+        f"\n{Fore.BLUE}Checking connection and validating auth data...{Style.RESET_ALL}"
+    )
 
     headers = {"Content-Type": "application/json", "Authorization": f"Bearer {token}"}
 
@@ -19,7 +21,7 @@ def get_user_self(api_url, token):
     # Print information about the response
     if response.status_code == 200:
         print(
-            f"\n{Fore.GREEN}Connection established! Auth data success! - Status Code: {response.status_code}{Style.RESET_ALL}"
+            f"\n{Fore.GREEN}Connection established! Auth data validated! - Status Code: {response.status_code}{Style.RESET_ALL}"
         )
     else:
         print(
