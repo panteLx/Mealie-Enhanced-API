@@ -54,7 +54,7 @@ if selected_script == "1":
             requests.post_recipes_create_url(url.strip(), include_tags, token, api_url)
         else:
             print(
-                f"\n{Fore.RED}Invalid URL: {url} (URL should start with 'http://' or 'https://'){Style.RESET_ALL}"
+                f"\n{Fore.RED}Invalid URL: {url} (URL should start with http:// or https://){Style.RESET_ALL}"
             )
 
 
